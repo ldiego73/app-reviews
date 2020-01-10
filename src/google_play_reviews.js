@@ -1,4 +1,4 @@
-const google = require("googleapis");
+const { google } = require("googleapis");
 const playScraper = require("google-play-scraper");
 const androidVersions = require("android-versions");
 const moment = require("moment");
@@ -112,7 +112,7 @@ exports.fetchGooglePlayReviews = function (config, appInformation, callback) {
         }
 
         //get list of reviews using Google Play Publishing API
-        google.androidpublisher('v2').reviews.list({
+        google.androidpublisher('v3').reviews.list({
             auth: jwt,
             packageName: config.appId
         }, function (err, resp) {
