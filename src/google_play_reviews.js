@@ -122,12 +122,12 @@ exports.fetchGooglePlayReviews = function (config, appInformation, callback) {
 
             if (config.verbose) console.log("INFO: [" + config.appId + "] Received reviews from Google Play");
 
-            if (!resp.reviews) {
+            if (!resp.data.reviews) {
                 callback([]);
                 return;
             }
 
-            var reviews = resp.reviews.map(function (review) {
+            var reviews = resp.data.reviews.map(function (review) {
 
                 var comment = review.comments[0].userComment;
 
